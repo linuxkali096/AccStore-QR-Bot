@@ -5,9 +5,9 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.14-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Telegram Bot API](https://img.shields.io/badge/Telegram_Bot_API-v21.5-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://core.telegram.org/bots/api)
-[![Status](https://img.shields.io/badge/Status-Production_Ready-00C853?style=for-the-badge&logo=render&logoColor=white)](#)
-[![Security](https://img.shields.io/badge/Security-Audit_Passed-blueviolet?style=for-the-badge&logo=shield&logoColor=white)](#)
-[![License](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](#)
+[![Channel](https://img.shields.io/badge/Channel-AccStore__Official-0088cc?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/AccStore_Official)
+[![Support](https://img.shields.io/badge/Support-@AccStore__Owner-24A1DE?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/AccStore_Owner)
+[![License](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
 
 <p align="center">
   <b>Generate instant, high-contrast UPI QR codes with custom profile photos, check real-time crypto prices with 0ms delay, and solve chat math in real-time.</b><br>
@@ -152,9 +152,9 @@ python3 main.py
 | **`ADMIN_ID`** | **Yes** | Telegram ID(s) of bot owners (comma-separated) | `987654321,11223344` |
 | **`BOT_NAME`** | No | Display name used in headers and cards | `QR Generator Pro` |
 | **`BOT_USERNAME`**| No | Official bot username handle | `@Qr_Generator_Pro_Robot` |
-| **`SUPPORT_USERNAME`**| No | Support admin handle for user help | `@YourSupport` |
+| **`SUPPORT_USERNAME`**| No | Support admin handle for user help | `@AccStore_Owner` |
 | **`LOG_CHANNEL_ID`** | No | Telegram channel ID for live QR creation logs | `-1001234567890` |
-| **`FORCE_SUB_CHANNEL`**| No | Channel username or ID for mandatory join | `@YourChannel` |
+| **`FORCE_SUB_CHANNEL`**| No | Channel username or ID for mandatory join | `@AccStore_Official` |
 
 ---
 
@@ -186,11 +186,18 @@ This bot adheres to the **Cloudflare Security Audit Standard**:
 
 ---
 
-## 🤝 Community & Support
+## 🤝 Community & Official Support
 
-- 💬 **Need Help or Customization?** Contact support via Telegram: [@YourSupport](https://t.me/)
-- ⭐ **Found this useful?** Star this repository on GitHub!
-- 📜 **License**: Distributed under the permissive [MIT License](LICENSE).
+Join our official Telegram community, receive updates, or reach out directly for priority developer assistance:
+
+| Channel / Contact | Details & Handles | Action |
+| :--- | :--- | :--- |
+| 📢 **Official Channel** | `@AccStore_Official` | [Join Community](https://t.me/AccStore_Official) |
+| 👤 **Telegram Support** | `@AccStore_Owner` | [Direct Message](https://t.me/AccStore_Owner) |
+| ✉️ **Support Email** | `admin@linuxkali096.dpdns.org` | [Send Email](mailto:admin@linuxkali096.dpdns.org) |
+| 📜 **Open Source License** | MIT License | [View License](LICENSE) |
+
+> 💬 **Have feedback, feature requests, or custom bot needs?** Chat directly with [@AccStore_Owner](https://t.me/AccStore_Owner) on Telegram!
 
 <div align="center">
   <br>
