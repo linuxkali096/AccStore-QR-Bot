@@ -1,0 +1,47 @@
+# ═══ Security & Secrets (NEVER COMMIT) ═══
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# ═══ Python Environments & Bytecode ═══
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# ═══ Node.js Dependencies ═══
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ═══ Persistent Databases & User Data ═══
+users.json
+bot_config.json
+*.json.tmp
+users_export_*.csv
+
+# ═══ Runtime Logs & Cache ═══
+*.log
+bot.log
+cache/
+*.tmp
+*.bak
+*.bak_*
+
+# ═══ System & IDE Metadata ═══
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
