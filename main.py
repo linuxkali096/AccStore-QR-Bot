@@ -126,12 +126,58 @@ CUSTOM_EMOJIS = {
     "calendar": '<tg-emoji emoji-id="5274055917766202507">📅</tg-emoji>',
     "edit": '<tg-emoji emoji-id="6204162490515855272">✏️</tg-emoji>',
     "pencil": '<tg-emoji emoji-id="6204162490515855272">✏️</tg-emoji>',
+    # ─── Popular Crypto Emojis (vector_basic_jaba) ───
+    "crypto_btc": '<tg-emoji emoji-id="5206610654747705715">🪙</tg-emoji>',
+    "crypto_eth": '<tg-emoji emoji-id="5332441144842277218">🪙</tg-emoji>',
+    "crypto_usdt": '<tg-emoji emoji-id="5463219974132746636">💲</tg-emoji>',
+    "crypto_not": '<tg-emoji emoji-id="5332816851401462071">🪙</tg-emoji>',
+    "crypto_ton": '<tg-emoji emoji-id="5377562086979161643">🤑</tg-emoji>',
+    "crypto_bnb": '<tg-emoji emoji-id="5463055055978513309">🪙</tg-emoji>',
+    "crypto_sol": '<tg-emoji emoji-id="5332581392704360215">🪙</tg-emoji>',
+    "crypto_usdc": '<tg-emoji emoji-id="5462911088674753179">💲</tg-emoji>',
+    "crypto_ltc": '<tg-emoji emoji-id="5463072798488411534">🪙</tg-emoji>',
+    "crypto_bch": '<tg-emoji emoji-id="5332275187305958945">🪙</tg-emoji>',
+    "crypto_xrp": '<tg-emoji emoji-id="5330329455451721164">🪙</tg-emoji>',
+    "crypto_doge": '<tg-emoji emoji-id="5463149893151379086">🐶</tg-emoji>',
+    "crypto_ada": '<tg-emoji emoji-id="5462948059753237765">🪙</tg-emoji>',
+    "crypto_avax": '<tg-emoji emoji-id="5463337334114110789">🪙</tg-emoji>',
+    "crypto_shib": '<tg-emoji emoji-id="5462891486444012406">🐶</tg-emoji>',
+    "crypto_trx": '<tg-emoji emoji-id="5332687864943626828">🪙</tg-emoji>',
+    "crypto_link": '<tg-emoji emoji-id="5462883630948830299">🪙</tg-emoji>',
+    "crypto_matic": '<tg-emoji emoji-id="5463199581628025829">🪙</tg-emoji>',
+    "crypto_pol": '<tg-emoji emoji-id="5463199581628025829">🪙</tg-emoji>',
+    "crypto_dot": '<tg-emoji emoji-id="5332639202964161592">🪙</tg-emoji>',
+    "crypto_uni": '<tg-emoji emoji-id="5332579511508683883">🪙</tg-emoji>',
+    "crypto_dai": '<tg-emoji emoji-id="5462943863570185808">🪙</tg-emoji>',
+    "crypto_ftm": '<tg-emoji emoji-id="5330484331972415623">🪙</tg-emoji>',
+    "crypto_near": '<tg-emoji emoji-id="5463257645290901054">🪙</tg-emoji>',
+    "crypto_atom": '<tg-emoji emoji-id="5332817074739759649">🪙</tg-emoji>',
+    "crypto_okb": '<tg-emoji emoji-id="5463221524615937539">🪙</tg-emoji>',
+    "crypto_pepe": '<tg-emoji emoji-id="5267043868259406425">🐸</tg-emoji>',
+    "crypto_hmstr": '<tg-emoji emoji-id="5235599347533499336">🐹</tg-emoji>',
+    "crypto_dogs": '<tg-emoji emoji-id="5231059124719998208">🤑</tg-emoji>',
+    "crypto_stars": '<tg-emoji emoji-id="5287479631891420667">⭐️</tg-emoji>',
+    "crypto_binance": '<tg-emoji emoji-id="5454205576512818013">💰</tg-emoji>',
+    "crypto_bybit": '<tg-emoji emoji-id="5454276769890715064">💰</tg-emoji>',
+    "crypto_metamask": '<tg-emoji emoji-id="5454344510114908657">🦊</tg-emoji>',
+    "crypto_trust": '<tg-emoji emoji-id="5454341361903880753">🔒</tg-emoji>',
+    "crypto_pump": '<tg-emoji emoji-id="5316817673022101530">📈</tg-emoji>',
+    "crypto_dump": '<tg-emoji emoji-id="5316706746901748061">📉</tg-emoji>',
 }
 
 
 def ce(key: str, fallback: str = "") -> str:
     """Return custom emoji tag if defined, otherwise return clean fallback."""
     return CUSTOM_EMOJIS.get(key, fallback)
+
+
+def crypto_emoji(symbol: str) -> str:
+    """Return specific custom animated coin emoji from vector_basic_jaba for given crypto symbol."""
+    sym = (symbol or "").lower().strip()
+    key = f"crypto_{sym}"
+    if key in CUSTOM_EMOJIS:
+        return CUSTOM_EMOJIS[key]
+    return CUSTOM_EMOJIS.get("coin", '<tg-emoji emoji-id="5206610654747705715">🪙</tg-emoji>')
 
 
 def _init_custom_emoji_map() -> dict:
@@ -1046,11 +1092,11 @@ async def send_crypto_rate(update: Update, ctx: ContextTypes.DEFAULT_TYPE, curre
         high = _LIVE_USDT_DATA["high"]
         low = _LIVE_USDT_DATA["low"]
         vol = _LIVE_USDT_DATA["volume"]
-        trend = "📈" if change_pct >= 0 else "📉"
+        trend = ce("crypto_pump", "📈") if change_pct >= 0 else ce("crypto_dump", "📉")
         sign = "+" if change_pct > 0 else ""
 
         text = (
-            f"{ce('coin', '🪙')} <b>USDT / INR Live Rate</b>\n"
+            f"{crypto_emoji('usdt')} <b>USDT / INR Live Rate</b>\n"
             "━━━━━━━━━━━━━━━━━━━━\n\n"
             f"• <b>Price (INR):</b> <code>₹{usdt_inr:,.2f}</code>\n"
             f"• <b>Price (USD):</b> <code>$1.0000</code>\n\n"
@@ -1102,11 +1148,11 @@ async def send_crypto_rate(update: Update, ctx: ContextTypes.DEFAULT_TYPE, curre
     low = ticker["low"]
     vol = ticker["volume"]
     source = ticker["source"]
-    trend = "📈" if change_pct >= 0 else "📉"
+    trend = ce("crypto_pump", "📈") if change_pct >= 0 else ce("crypto_dump", "📉")
     sign = "+" if change_pct > 0 else ""
 
     text = (
-        f"{ce('coin', '🪙')} <b>{currency.upper()} Live Market Rate</b>\n"
+        f"{crypto_emoji(currency)} <b>{currency.upper()} Live Market Rate</b>\n"
         "━━━━━━━━━━━━━━━━━━━━\n\n"
         f"• <b>Price (USDT):</b> <code>${price_usdt:,.4f}</code>\n"
         f"• <b>Price (INR):</b> <code>₹{price_inr:,.2f}</code>\n\n"
