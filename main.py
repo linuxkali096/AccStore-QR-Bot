@@ -132,6 +132,8 @@ CUSTOM_EMOJIS = {
     "crypto_usdt": '<tg-emoji emoji-id="5463219974132746636">💲</tg-emoji>',
     "crypto_not": '<tg-emoji emoji-id="5332816851401462071">🪙</tg-emoji>',
     "crypto_ton": '<tg-emoji emoji-id="5377562086979161643">🤑</tg-emoji>',
+    "crypto_gram": '<tg-emoji emoji-id="5404522721977582023">💎</tg-emoji>',
+    "crypto_grm": '<tg-emoji emoji-id="5404522721977582023">💎</tg-emoji>',
     "crypto_bnb": '<tg-emoji emoji-id="5463055055978513309">🪙</tg-emoji>',
     "crypto_sol": '<tg-emoji emoji-id="5332581392704360215">🪙</tg-emoji>',
     "crypto_usdc": '<tg-emoji emoji-id="5462911088674753179">💲</tg-emoji>',
@@ -199,7 +201,7 @@ def _init_custom_emoji_map() -> dict:
         try:
             with open(mapping_file, "r", encoding="utf-8") as f:
                 mapping.update(json.load(f))
-            return mapping
+            return {k: v for k, v in mapping.items() if k and len(k.strip()) > 0}
         except Exception as e:
             logger.warning(f"Could not load emoji_mapping.json: {e}")
 
@@ -225,7 +227,7 @@ def _init_custom_emoji_map() -> dict:
         except Exception as e:
             logger.warning(f"Could not load all_emojis.json: {e}")
 
-    return mapping
+    return {k: v for k, v in mapping.items() if k and len(k.strip()) > 0}
 
 
 EMOJI_CHAR_TO_CUSTOM = _init_custom_emoji_map()

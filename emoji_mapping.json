@@ -992,5 +992,9 @@
   "$DOGS": "<tg-emoji emoji-id=\"5231059124719998208\">🤑</tg-emoji>",
   "$dogs": "<tg-emoji emoji-id=\"5231059124719998208\">🤑</tg-emoji>",
   "$STARS": "<tg-emoji emoji-id=\"5287479631891420667\">⭐️</tg-emoji>",
-  "$stars": "<tg-emoji emoji-id=\"5287479631891420667\">⭐️</tg-emoji>"
+  "$stars": "<tg-emoji emoji-id=\"5287479631891420667\">⭐️</tg-emoji>",
+  "$GRAM": "<tg-emoji emoji-id=\"5404522721977582023\">💎</tg-emoji>",
+  "$gram": "<tg-emoji emoji-id=\"5404522721977582023\">💎</tg-emoji>",
+  "$GRM": "<tg-emoji emoji-id=\"5404522721977582023\">💎</tg-emoji>",
+  "$grm": "<tg-emoji emoji-id=\"5404522721977582023\">💎</tg-emoji>"
 }
