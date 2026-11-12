@@ -63,31 +63,6 @@ CACHE_DIR = "cache"
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 # ─── Sleek Minimalist Custom Emojis for Primary Headers & Badges ───
-CUSTOM_EMOJIS = {
-    "crown": '<tg-emoji emoji-id="6325564362522104416">👑</tg-emoji>',
-    "diamond": '<tg-emoji emoji-id="6325717349257187998">💎</tg-emoji>',
-    "card": '<tg-emoji emoji-id="5445353829304387411">💳</tg-emoji>',
-    "sparkle": '<tg-emoji emoji-id="6325413811033477368">✨</tg-emoji>',
-    "shield": '<tg-emoji emoji-id="6325790127478018778">🛡️</tg-emoji>',
-    "server": '<tg-emoji emoji-id="6325332404223350181">🖥️</tg-emoji>',
-    "gear": '<tg-emoji emoji-id="6325849814638531007">⚙️</tg-emoji>',
-    "zap": '<tg-emoji emoji-id="6325415120998502570">⚡</tg-emoji>',
-    "storage": '<tg-emoji emoji-id="5445221832074483553">💾</tg-emoji>',
-    "bot": '<tg-emoji emoji-id="6325569336094232734">🤖</tg-emoji>',
-    "money": '<tg-emoji emoji-id="6325444137797554944">💰</tg-emoji>',
-    "coin": '<tg-emoji emoji-id="5377505475015235101">🪙</tg-emoji>',
-    "check": '<tg-emoji emoji-id="6325382986053193737">✅</tg-emoji>',
-    "cross": '<tg-emoji emoji-id="6325844463109280731">❌</tg-emoji>',
-    "user": '<tg-emoji emoji-id="6307777408300753473">👤</tg-emoji>',
-    "gem": '<tg-emoji emoji-id="6205965994528086727">💠</tg-emoji>',
-}
-
-
-def ce(key: str, fallback: str = "") -> str:
-    """Return custom emoji tag if defined, otherwise return clean fallback."""
-    return CUSTOM_EMOJIS.get(key, fallback)
-
-
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -99,6 +74,251 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("httpcore").setLevel(logging.WARNING)
+
+# ─── High-Performance Custom Emoji Engine (Universal Telegram Animated Emojis) ───
+CUSTOM_EMOJIS = {
+    "crown": '<tg-emoji emoji-id="6325564362522104416">👑</tg-emoji>',
+    "diamond": '<tg-emoji emoji-id="6325717349257187998">💎</tg-emoji>',
+    "card": '<tg-emoji emoji-id="5445353829304387411">💳</tg-emoji>',
+    "sparkle": '<tg-emoji emoji-id="6325413811033477368">✨</tg-emoji>',
+    "shield": '<tg-emoji emoji-id="6325790127478018778">🛡</tg-emoji>',
+    "server": '<tg-emoji emoji-id="6325332404223350181">🖥</tg-emoji>',
+    "gear": '<tg-emoji emoji-id="6325849814638531007">🧩</tg-emoji>',
+    "zap": '<tg-emoji emoji-id="6325415120998502570">🌩</tg-emoji>',
+    "storage": '<tg-emoji emoji-id="5445221832074483553">💼</tg-emoji>',
+    "bot": '<tg-emoji emoji-id="6325569336094232734">💻</tg-emoji>',
+    "money": '<tg-emoji emoji-id="6325444137797554944">💰</tg-emoji>',
+    "coin": '<tg-emoji emoji-id="6064332296821936374">🪙</tg-emoji>',
+    "check": '<tg-emoji emoji-id="6325382986053193737">✅</tg-emoji>',
+    "cross": '<tg-emoji emoji-id="6325844463109280731">❌</tg-emoji>',
+    "user": '<tg-emoji emoji-id="6307777408300753473">👤</tg-emoji>',
+    "users": '<tg-emoji emoji-id="6307777408300753473">👤</tg-emoji>',
+    "gem": '<tg-emoji emoji-id="6205965994528086727">💠</tg-emoji>',
+    "warn": '<tg-emoji emoji-id="6206174450765796040">⚠️</tg-emoji>',
+    "ban": '<tg-emoji emoji-id="6206285149252883826">⛔️</tg-emoji>',
+    "broadcast": '<tg-emoji emoji-id="6206080502651164081">📣</tg-emoji>',
+    "link": '<tg-emoji emoji-id="6206497372176913599">🔗</tg-emoji>',
+    "note": '<tg-emoji emoji-id="6206190608432764318">📌</tg-emoji>',
+    "search": '<tg-emoji emoji-id="6206446249181189526">🔍</tg-emoji>',
+    "trash": '<tg-emoji emoji-id="6206108815075579644">🗑</tg-emoji>',
+    "sync": '<tg-emoji emoji-id="6325541629260206557">🔄</tg-emoji>',
+    "calc": '<tg-emoji emoji-id="5190741648237161191">🧮</tg-emoji>',
+    "home": '<tg-emoji emoji-id="6305157130357839863">🏠</tg-emoji>',
+    "online": '<tg-emoji emoji-id="6323079032451634398">🟢</tg-emoji>',
+    "offline": '<tg-emoji emoji-id="6325641255321604342">🔴</tg-emoji>',
+    "wait": '<tg-emoji emoji-id="6206118633370818254">⌛</tg-emoji>',
+    "tag": '<tg-emoji emoji-id="5240228673738527951">🏷</tg-emoji>',
+    "id": '<tg-emoji emoji-id="6325655265504923619">🆔</tg-emoji>',
+    "mail": '<tg-emoji emoji-id="6206112371308500200">✉️</tg-emoji>',
+    "lock": '<tg-emoji emoji-id="6325790127478018778">🛡</tg-emoji>',
+    "help": '<tg-emoji emoji-id="6206306186002698906">❓</tg-emoji>',
+    "chart_up": '<tg-emoji emoji-id="6325797905663791037">📈</tg-emoji>',
+    "chart_down": '<tg-emoji emoji-id="6325409812418924375">📉</tg-emoji>',
+    "stats": '<tg-emoji emoji-id="6325667390197600621">📊</tg-emoji>',
+    "bell": '<tg-emoji emoji-id="6325601063017648133">🔔</tg-emoji>',
+    "gift": '<tg-emoji emoji-id="6325818255218841203">🎁</tg-emoji>',
+    "star": '<tg-emoji emoji-id="6325615025956328299">⭐</tg-emoji>',
+    "rocket": '<tg-emoji emoji-id="5195033767969839232">🚀</tg-emoji>',
+    "bulb": '<tg-emoji emoji-id="5262844652964303985">💡</tg-emoji>',
+    "chat": '<tg-emoji emoji-id="5303138782004924588">💬</tg-emoji>',
+    "bank": '<tg-emoji emoji-id="5332455502917949981">🏦</tg-emoji>',
+    "doc": '<tg-emoji emoji-id="5444856076954520455">🧾</tg-emoji>',
+    "calendar": '<tg-emoji emoji-id="5274055917766202507">📅</tg-emoji>',
+    "edit": '<tg-emoji emoji-id="6204162490515855272">✏️</tg-emoji>',
+    "pencil": '<tg-emoji emoji-id="6204162490515855272">✏️</tg-emoji>',
+}
+
+
+def ce(key: str, fallback: str = "") -> str:
+    """Return custom emoji tag if defined, otherwise return clean fallback."""
+    return CUSTOM_EMOJIS.get(key, fallback)
+
+
+def _init_custom_emoji_map() -> dict:
+    mapping = {
+        "✓": '<tg-emoji emoji-id="6325382986053193737">✅</tg-emoji>',
+        "✔": '<tg-emoji emoji-id="6325382986053193737">✅</tg-emoji>',
+        "✕": '<tg-emoji emoji-id="6325844463109280731">❌</tg-emoji>',
+        "✖": '<tg-emoji emoji-id="6325844463109280731">❌</tg-emoji>',
+        "✗": '<tg-emoji emoji-id="6325844463109280731">❌</tg-emoji>',
+        "✘": '<tg-emoji emoji-id="6325844463109280731">❌</tg-emoji>',
+        "✎": '<tg-emoji emoji-id="6204162490515855272">✏️</tg-emoji>',
+        "💾": '<tg-emoji emoji-id="5445221832074483553">💼</tg-emoji>',
+        "⏳": '<tg-emoji emoji-id="6206118633370818254">⌛</tg-emoji>',
+    }
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    mapping_file = os.path.join(base_dir, "emoji_mapping.json")
+    if os.path.exists(mapping_file):
+        try:
+            with open(mapping_file, "r", encoding="utf-8") as f:
+                mapping.update(json.load(f))
+            return mapping
+        except Exception as e:
+            logger.warning(f"Could not load emoji_mapping.json: {e}")
+
+    ae_file = os.path.join(base_dir, "all_emojis.json")
+    vs_file = os.path.join(base_dir, "verified_stickers.json")
+    if os.path.exists(ae_file):
+        try:
+            with open(ae_file, "r", encoding="utf-8") as f:
+                ae = json.load(f)
+            vs = {}
+            if os.path.exists(vs_file):
+                with open(vs_file, "r", encoding="utf-8") as f:
+                    vs = json.load(f)
+            for char, cid in ae.items():
+                cid_str = str(cid)
+                backing, _ = vs.get(cid_str, (char, ""))
+                tag = f'<tg-emoji emoji-id="{cid_str}">{backing}</tg-emoji>'
+                mapping[char] = tag
+                if "\ufe0f" in char:
+                    mapping[char.replace("\ufe0f", "")] = tag
+                else:
+                    mapping[char + "\ufe0f"] = tag
+        except Exception as e:
+            logger.warning(f"Could not load all_emojis.json: {e}")
+
+    return mapping
+
+
+EMOJI_CHAR_TO_CUSTOM = _init_custom_emoji_map()
+
+if EMOJI_CHAR_TO_CUSTOM:
+    _keys_sorted = sorted(EMOJI_CHAR_TO_CUSTOM.keys(), key=len, reverse=True)
+    _EMOJI_REPLACE_REGEX = re.compile("|".join(re.escape(k) for k in _keys_sorted))
+else:
+    _EMOJI_REPLACE_REGEX = None
+
+_TAG_SPLIT_REGEX = re.compile(r"(<tg-emoji[^>]*>.*?</tg-emoji>)")
+
+
+def apply_custom_emojis(text: str) -> str:
+    """Transform all standard/unicode emojis in text into verified custom animated tg-emoji tags."""
+    if not text or not isinstance(text, str) or not _EMOJI_REPLACE_REGEX:
+        return text
+    parts = _TAG_SPLIT_REGEX.split(text)
+    for i in range(0, len(parts), 2):
+        if parts[i]:
+            parts[i] = _EMOJI_REPLACE_REGEX.sub(
+                lambda m: EMOJI_CHAR_TO_CUSTOM.get(m.group(0), m.group(0)), parts[i]
+            )
+    return "".join(parts)
+
+
+def _patch_telegram_bot_custom_emojis():
+    """Wrap Telegram Bot outgoing methods to automatically apply custom emojis everywhere."""
+    from telegram import Bot
+    from telegram.constants import ParseMode
+
+    def _transform(text, parse_mode):
+        if text and isinstance(text, str):
+            new_text = apply_custom_emojis(text)
+            if new_text != text or "<tg-emoji" in new_text:
+                text = new_text
+                if not parse_mode or str(parse_mode).startswith("DefaultValue"):
+                    parse_mode = ParseMode.HTML
+        return text, parse_mode
+
+    # 1. Bot.send_message(self, chat_id, text, parse_mode=None, ...)
+    orig_send_message = Bot.send_message
+    async def _send_message_wrapper(self, *args, **kwargs):
+        if len(args) > 1 and isinstance(args[1], str):
+            text = args[1]
+            pm = args[2] if len(args) > 2 else kwargs.get("parse_mode")
+            text, pm = _transform(text, pm)
+            if len(args) > 2:
+                args = (args[0], text, pm) + args[3:]
+            else:
+                args = (args[0], text) + args[2:]
+                kwargs["parse_mode"] = pm
+        elif "text" in kwargs and isinstance(kwargs["text"], str):
+            kwargs["text"], kwargs["parse_mode"] = _transform(
+                kwargs.get("text"), kwargs.get("parse_mode")
+            )
+        return await orig_send_message(self, *args, **kwargs)
+
+    # 2. Bot.edit_message_text(self, text, chat_id=None, message_id=None, inline_message_id=None, parse_mode=None, ...)
+    orig_edit_message_text = Bot.edit_message_text
+    async def _edit_message_text_wrapper(self, *args, **kwargs):
+        if len(args) > 0 and isinstance(args[0], str):
+            text = args[0]
+            pm = args[4] if len(args) > 4 else kwargs.get("parse_mode")
+            text, pm = _transform(text, pm)
+            if len(args) > 4:
+                args = (text, args[1], args[2], args[3], pm) + args[5:]
+            else:
+                args = (text,) + args[1:]
+                kwargs["parse_mode"] = pm
+        elif "text" in kwargs and isinstance(kwargs["text"], str):
+            kwargs["text"], kwargs["parse_mode"] = _transform(
+                kwargs.get("text"), kwargs.get("parse_mode")
+            )
+        return await orig_edit_message_text(self, *args, **kwargs)
+
+    # 3. Bot.send_photo(self, chat_id, photo, caption=None, ... parse_mode=None, ...)
+    orig_send_photo = Bot.send_photo
+    async def _send_photo_wrapper(self, *args, **kwargs):
+        if len(args) > 2 and isinstance(args[2], str):
+            caption = args[2]
+            pm = args[5] if len(args) > 5 else kwargs.get("parse_mode")
+            caption, pm = _transform(caption, pm)
+            if len(args) > 5:
+                args = (args[0], args[1], caption, args[3], args[4], pm) + args[6:]
+            else:
+                args = (args[0], args[1], caption) + args[3:]
+                kwargs["parse_mode"] = pm
+        elif "caption" in kwargs and isinstance(kwargs["caption"], str):
+            kwargs["caption"], kwargs["parse_mode"] = _transform(
+                kwargs.get("caption"), kwargs.get("parse_mode")
+            )
+        return await orig_send_photo(self, *args, **kwargs)
+
+    # 4. Bot.edit_message_caption(self, chat_id=None, message_id=None, inline_message_id=None, caption=None, reply_markup=None, parse_mode=None, ...)
+    orig_edit_message_caption = Bot.edit_message_caption
+    async def _edit_message_caption_wrapper(self, *args, **kwargs):
+        if len(args) > 3 and isinstance(args[3], str):
+            caption = args[3]
+            pm = args[5] if len(args) > 5 else kwargs.get("parse_mode")
+            caption, pm = _transform(caption, pm)
+            if len(args) > 5:
+                args = (args[0], args[1], args[2], caption, args[4], pm) + args[6:]
+            else:
+                args = (args[0], args[1], args[2], caption) + args[4:]
+                kwargs["parse_mode"] = pm
+        elif "caption" in kwargs and isinstance(kwargs["caption"], str):
+            kwargs["caption"], kwargs["parse_mode"] = _transform(
+                kwargs.get("caption"), kwargs.get("parse_mode")
+            )
+        return await orig_edit_message_caption(self, *args, **kwargs)
+
+    # 5. Bot.send_document(self, chat_id, document, caption=None, ... parse_mode=None, ...)
+    orig_send_document = Bot.send_document
+    async def _send_document_wrapper(self, *args, **kwargs):
+        if len(args) > 2 and isinstance(args[2], str):
+            caption = args[2]
+            pm = args[5] if len(args) > 5 else kwargs.get("parse_mode")
+            caption, pm = _transform(caption, pm)
+            if len(args) > 5:
+                args = (args[0], args[1], caption, args[3], args[4], pm) + args[6:]
+            else:
+                args = (args[0], args[1], caption) + args[3:]
+                kwargs["parse_mode"] = pm
+        elif "caption" in kwargs and isinstance(kwargs["caption"], str):
+            kwargs["caption"], kwargs["parse_mode"] = _transform(
+                kwargs.get("caption"), kwargs.get("parse_mode")
+            )
+        return await orig_send_document(self, *args, **kwargs)
+
+    Bot.send_message = _send_message_wrapper
+    Bot.edit_message_text = _edit_message_text_wrapper
+    Bot.send_photo = _send_photo_wrapper
+    Bot.edit_message_caption = _edit_message_caption_wrapper
+    Bot.send_document = _send_document_wrapper
+    logger.info("Custom emoji universal interceptors active for all Telegram Bot methods.")
+
+
+_patch_telegram_bot_custom_emojis()
 
 
 # ─── Database & State Persistence (Thread-Safe & Atomic) ───
